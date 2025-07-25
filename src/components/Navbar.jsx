@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import pic from "../../public/image.jpg";
+import pic from "../../public/kings.jpg";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoCloseSharp } from "react-icons/io5";
-import {Link} from 'react-scroll';
+import { Link } from 'react-scroll';
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const navItems = [
@@ -16,12 +16,13 @@ const Navbar = () => {
     },
     {
       id: 3,
-      text: "Portfolio",
+      text: "Projects",
     },
     {
       id: 4,
-      text: "Experiance",
+      text: "Tech Skills",
     },
+
     {
       id: 5,
       text: "Contact",
@@ -34,8 +35,7 @@ const Navbar = () => {
           <div className="flex space-x-2">
             <img src={pic} className="h-12 w-12 rounded-full" alt="" />
             <h1 className="font-semibold text-xl cursor-pointer">
-              <span className=" text-2xl">Mohd Shahran Turki</span>
-              <p className="text-sm">Web Develpoer</p>
+              <span className=" text-2xl">Shahran Pasha</span>
             </h1>
           </div>
 
@@ -47,11 +47,11 @@ const Navbar = () => {
                   key={id}
                 >
                   <Link to={text}
-                  smooth={true}
-                  duration={500}
-                  offset={-70}
-                  activeClass='active'>
-                  {text} </Link>
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass='active'>
+                    {text} </Link>
                 </li>
               ))}
             </ul>
@@ -69,13 +69,13 @@ const Navbar = () => {
                   className="hover:scale-105 duration-200 cursor-pointer font-semibold"
                   key={id}
                 >
-                   <Link to={text}
-                   onClick={() => setMenu(!menu)}
-                  smooth={true}
-                  duration={500}
-                  offset={-70}
-                  activeClass='active'>
-                  {text} </Link>
+                  <Link to={text}
+                    onClick={() => setMenu(!menu)}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass='active'>
+                    {text} </Link>
                 </li>
               ))}
             </ul>

@@ -8,7 +8,7 @@ import { SiExpress } from "react-icons/si";
 import { SiNodedotjs } from "react-icons/si";
 import { RiReactjsFill } from "react-icons/ri";
 import { ReactTyped } from "react-typed";
-import pic from "../../public/image.jpg";
+import pic from "../../public/kings.jpg";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Home = () => {
@@ -35,7 +35,7 @@ const Home = () => {
             <br />
             <p className="text-sm md:text-md text-justify">
               I am a dedicated Computer Science student currently pursuing my
-              B.Tech at Sharda University, where I am in my second year. With a
+              B.Tech at Sharda University, where I am in my third year. With a
               strong foundation in programming and software development, I am
               keen on expanding my technical skills, particularly in MERN stack
               development. I am currently working on a React app as part of a
@@ -46,7 +46,7 @@ const Home = () => {
             <div className="flex flex-col items-center md:flex-row space-y-6 md:space-y-0 justify-between">
               <div className="space-y-2 ">
                 <h1 className="font-bold">Available on </h1>
-                <ul className="flex space-x-3">
+                <ul className="flex space-x-5">
                   <li>
                     <a
                       href="www.linkedin.com/in/shahran-pasha-9731952a4"
@@ -85,7 +85,7 @@ const Home = () => {
               </div>
               <div className="space-y-2">
                 <h1 className="font-bold">Currently working on </h1>
-                <ul className="flex space-x-3">
+                <ul className="flex space-x-5">
                   <li>
                     <a href="https://www.mongodb.com/" target="_blank">
                       <SiMongodb className="text-2xl cursor-pointer" />
@@ -98,18 +98,18 @@ const Home = () => {
                   </li>
                   <li>
                     <a
-                      href="https://nodejs.org/docs/latest/api/"
+                      href="https://react.dev/"
                       target="_blank"
                     >
-                      <SiNodedotjs className="text-2xl cursor-pointer" />
+                      <RiReactjsFill className="text-2xl cursor-pointer" />
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://legacy.reactjs.org/docs/getting-started.html"
+                      href="https://nodejs.org/en"
                       target="_blank"
                     >
-                      <RiReactjsFill className="text-2xl cursor-pointer" />
+                      <SiNodedotjs className="text-2xl cursor-pointer" />
                     </a>
                   </li>
                 </ul>

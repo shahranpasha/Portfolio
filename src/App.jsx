@@ -13,8 +13,9 @@ export default function App() {
       <Navbar/>
       <Home/>
       <About/>
-      <Portfolio/>
       <Experience/>
+      <Portfolio/>
+      
       <Contact/>
       <Footer/>
       </div>
