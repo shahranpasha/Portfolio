@@ -143,6 +143,34 @@ function Experience() {
               data-section="section1"
               className={`${getSectionClasses('section1')} ${activeSection === 'section1' ? 'md:ml-0' : ''}`}
             >
+              <h1 className="text-black font-semibold text-xl mb-4">Elite Designs & Arcvibe</h1>
+              <div className="text-gray-700">
+                <div className="flex items-start">
+                  <span className=""></span>
+                  <div>
+                    <p className="mb-3">
+                      Elite Designs & Arcvibe is a premier 2D Planning, 3D Planning & Designsing, Interior Designsing, Costing & Estimation, Structural Engineering & Construction firm based in Moradabad, specializing in elegant and functional spaces for Residential and Commercial both.
+                    </p>
+                    <a
+                      href="https://www.elitedesignsarcvibe.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-4 py-2 border border-black rounded-lg hover:bg-black hover:text-white transition-colors duration-200"
+                    >
+                      Visit website
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Section 2 */}
+            <div
+              ref={section2Ref}
+              data-section="section2"
+              className={`${getSectionClasses('section2')} ml-auto`}
+            >
               <h1 className="text-black font-semibold text-xl mb-4">BuyEco – Your Destination for Eco-Friendly Online Shopping</h1>
               <div className="text-gray-700">
                 <div className="flex items-start">
@@ -166,13 +194,14 @@ function Experience() {
                 </div>
 
               </div>
+
             </div>
 
-            {/* Section 2 */}
+            {/* Section 3 */}
             <div
-              ref={section2Ref}
-              data-section="section2"
-              className={`${getSectionClasses('section2')} ml-auto`}
+              ref={section3Ref}
+              data-section="section3"
+              className={`${getSectionClasses('section3')} ${activeSection === 'section3' ? 'md:ml-0' : ''}`}
             >
               <h1 className="text-black font-semibold text-xl mb-4">Division Exports - Premier Handicraft Manufacturer & Global Exporter</h1>
               <div className="text-gray-700">
@@ -194,26 +223,7 @@ function Experience() {
                 </div>
 
               </div>
-            </div>
 
-            {/* Section 3 */}
-            <div
-              ref={section3Ref}
-              data-section="section3"
-              className={`${getSectionClasses('section3')} ${activeSection === 'section3' ? 'md:ml-0' : ''}`}
-            >
-              <h1 className="text-black font-semibold text-xl mb-4">BookStore - E-commerce Website for Books</h1>
-              <div className="text-gray-700">
-                <div className="flex items-start">
-                  <span className=""></span>
-                  <div>
-                    <p className="mb-3">
-                      BookStore is a full-fledged e-commerce platform built using the MERN stack (MongoDB, Express.js, React.js, Node.js), designed for buying and selling books online. The website offers a seamless shopping experience with features like user authentication, product catalog, search & filtering, cart management, secure payments, and order tracking.                    </p>
-                    <p className="inline-block px-4 py-2 border border-black rounded-lg hover:bg-black hover:text-white transition-colors duration-200">Link Soon</p>
-                  </div>
-                </div>
-
-              </div>
             </div>
 
             {/* Section 4 */}
