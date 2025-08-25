@@ -5,21 +5,21 @@ import Portfolio from "./components/Portfolio";
 import Experience from "./components/Experience";
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import {Toaster} from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
+
 export default function App() {
   return (
     <>
-      <div>
-      <Navbar/>
-      <Home/>
-      <About/>
-      <Experience/>
-      <Portfolio/>
-      
-      <Contact/>
-      <Footer/>
+      <div className="bg-black ">
+        <Navbar />
+        <Home />
+        <About />
+        <Experience />
+        <Portfolio />
+        <Contact />
+        <Footer />
       </div>
-      <Toaster/>
+      <Toaster />
     </>
-  )
+  );
 }

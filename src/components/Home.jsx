@@ -8,7 +8,7 @@ import { SiExpress } from "react-icons/si";
 import { SiNodedotjs } from "react-icons/si";
 import { RiReactjsFill } from "react-icons/ri";
 import { ReactTyped } from "react-typed";
-import pic from "../../public/kings.jpg";
+import pic from "../../public/pasha.jpg";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
     <>
       <div
         name="Home"
-        className="max-w-screen-2x1 container mx-auto px-4 md:px-20 my-20"
+        className="max-w-screen-2x1 container mx-auto px-4 md:px-20 my-20 bg-black text-white"
       >
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 mt-12 md:mt-24 space-y-2 order-2 md:order-1">
@@ -46,7 +46,7 @@ const Home = () => {
             <div className="flex flex-col items-center md:flex-row space-y-6 md:space-y-0 justify-between">
               <div className="space-y-2 ">
                 <h1 className="font-bold">Available on </h1>
-                <ul className="flex space-x-5">
+                <ul className="flex space-x-5 text-white">
                   <li>
                     <a
                       href="www.linkedin.com/in/shahran-pasha-9731952a4"
@@ -85,7 +85,7 @@ const Home = () => {
               </div>
               <div className="space-y-2">
                 <h1 className="font-bold">Currently working on </h1>
-                <ul className="flex space-x-5">
+                <ul className="flex space-x-5 text-white">
                   <li>
                     <a href="https://www.mongodb.com/" target="_blank">
                       <SiMongodb className="text-2xl cursor-pointer" />
@@ -125,7 +125,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <hr />
+      <hr className="border-gray-700" />
     </>
   );
 };

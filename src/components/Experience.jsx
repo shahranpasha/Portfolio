@@ -4,16 +4,12 @@ function Experience() {
   const circleRef = useRef(null);
   const experienceSectionRef = useRef(null);
   const lineRef = useRef(null);
-
-  // Refs for each content section
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
   const section4Ref = useRef(null);
-
   const [activeSection, setActiveSection] = useState(null);
 
-  // Intersection Observer setup
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,7 +34,6 @@ function Experience() {
     return () => sections.forEach(section => observer.unobserve(section));
   }, []);
 
-  // Draggable circle functionality
   useEffect(() => {
     const circle = circleRef.current;
     const experienceSection = experienceSectionRef.current;
@@ -108,43 +103,39 @@ function Experience() {
     };
   }, []);
 
-  // Section visibility classes
   const getSectionClasses = (sectionName) => {
-    const baseClasses = "w-full md:w-5/12 mb-16 p-6 border border-black rounded-lg bg-white shadow-md transition-all duration-500 ease-out";
-    const focusedClasses = "opacity-100 translate-y-0 scale-100 bg-white";
-    const unfocusedClasses = "md:opacity-20 md:scale-90 bg-gray-50";
+    const baseClasses = "w-full md:w-5/12 mb-16 p-6 border border-white rounded-lg bg-slate-900 shadow-md transition-all duration-500 ease-out";
+    const focusedClasses = "opacity-100 translate-y-0 scale-100 bg-slate-900";
+    const unfocusedClasses = "md:opacity-20 md:scale-90 bg-gray-900";
 
     return `${baseClasses} ${activeSection === sectionName ? focusedClasses : unfocusedClasses}`;
   };
 
   return (
-    <div name="Projects" className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20" ref={experienceSectionRef}>
+    <div name="Projects" className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20 bg-black text-white" ref={experienceSectionRef}>
       <h1 className="text-3xl font-bold mb-5 text-center">PROJECTS</h1>
       <p className="text-center mb-10">Projects that i have made and worked in </p>
       <div className="relative">
         <div className="relative py-20">
-          {/* Center line */}
           <div
             ref={lineRef}
-            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-black transform -translate-x-1/2 z-10"
+            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-white transform -translate-x-1/2 z-10"
           ></div>
 
-          {/* Draggable circle */}
           <div
             ref={circleRef}
-            className="hidden md:block absolute left-1/2 w-6 h-6 rounded-full border-2 border-gray-400 bg-white transform -translate-x-1/2 z-20 cursor-ns-resize shadow-sm"
+            className="hidden md:block absolute left-1/2 w-6 h-6 rounded-full border-2 border-white bg-black transform -translate-x-1/2 z-20 cursor-ns-resize shadow-sm"
             style={{ touchAction: 'none' }}
           ></div>
 
           <div className="container mx-auto px-4 relative">
-            {/* Section 1 */}
             <div
               ref={section1Ref}
               data-section="section1"
               className={`${getSectionClasses('section1')} ${activeSection === 'section1' ? 'md:ml-0' : ''}`}
             >
-              <h1 className="text-black font-semibold text-xl mb-4">Elite Designs & Arcvibe</h1>
-              <div className="text-gray-700">
+              <h1 className="text-white font-semibold text-xl mb-4">Elite Designs & Arcvibe</h1>
+              <div className="text-gray-300">
                 <div className="flex items-start">
                   <span className=""></span>
                   <div>
@@ -155,7 +146,7 @@ function Experience() {
                       href="https://www.elitedesignsarcvibe.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block px-4 py-2 border border-black rounded-lg hover:bg-black hover:text-white transition-colors duration-200"
+                      className="inline-block px-4 py-2 border border-white rounded-lg hover:bg-white hover:text-black transition-colors duration-200"
                     >
                       Visit website
                     </a>
@@ -165,14 +156,13 @@ function Experience() {
               </div>
             </div>
 
-            {/* Section 2 */}
             <div
               ref={section2Ref}
               data-section="section2"
               className={`${getSectionClasses('section2')} ml-auto`}
             >
-              <h1 className="text-black font-semibold text-xl mb-4">BuyEco – Your Destination for Eco-Friendly Online Shopping</h1>
-              <div className="text-gray-700">
+              <h1 className="text-white font-semibold text-xl mb-4">BuyEco – Your Destination for Eco-Friendly Online Shopping</h1>
+              <div className="text-gray-300">
                 <div className="flex items-start">
                   <span className=""></span>
                   <div>
@@ -186,7 +176,7 @@ function Experience() {
                       href="https://buyeco.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block px-4 py-2 border border-black rounded-lg hover:bg-black hover:text-white transition-colors duration-200"
+                      className="inline-block px-4 py-2 border border-white rounded-lg hover:bg-white hover:text-black transition-colors duration-200"
                     >
                       Visit website
                     </a>
@@ -194,17 +184,15 @@ function Experience() {
                 </div>
 
               </div>
-
             </div>
 
-            {/* Section 3 */}
             <div
               ref={section3Ref}
               data-section="section3"
               className={`${getSectionClasses('section3')} ${activeSection === 'section3' ? 'md:ml-0' : ''}`}
             >
-              <h1 className="text-black font-semibold text-xl mb-4">Division Exports - Premier Handicraft Manufacturer & Global Exporter</h1>
-              <div className="text-gray-700">
+              <h1 className="text-white font-semibold text-xl mb-4">Division Exports - Premier Handicraft Manufacturer & Global Exporter</h1>
+              <div className="text-gray-300">
                 <div className="flex items-start">
                   <span className=""></span>
                   <div>
@@ -215,26 +203,22 @@ function Experience() {
                       href="http://divisionexport.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block px-4 py-2 border border-black rounded-lg hover:bg-black hover:text-white transition-colors duration-200"
+                      className="inline-block px-4 py-2 border border-white rounded-lg hover:bg-white hover:text-black transition-colors duration-200"
                     >
                       Visit website
                     </a>
                   </div>
                 </div>
-
               </div>
-
             </div>
 
-            {/* Section 4 */}
             <div
               ref={section4Ref}
               data-section="section4"
               className={`${getSectionClasses('section4')} ml-auto`}
             >
-              <h1 className="text-black font-semibold text-xl mb-4">DocuSwift – Effortless Word to PDF Conversion</h1>
-              <div className="text-gray-700">
-
+              <h1 className="text-white font-semibold text-xl mb-4">DocuSwift – Effortless Word to PDF Conversion</h1>
+              <div className="text-gray-300">
                 <div className="flex items-start">
                   <span className=""></span>
                   <div>
@@ -244,7 +228,7 @@ function Experience() {
                       href="https://wordtwopdf.netlify.app/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block px-4 py-2 border border-black rounded-lg hover:bg-black hover:text-white transition-colors duration-200"
+                      className="inline-block px-4 py-2 border border-white rounded-lg hover:bg-white hover:text-black transition-colors duration-200"
                     >
                       Visit website
                     </a>
@@ -252,7 +236,6 @@ function Experience() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
