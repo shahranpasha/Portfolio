@@ -121,10 +121,9 @@ const About = () => {
           Hello, I'm Md Shahran Turki, a passionate Web developer with a keen eye for
           MERN Stack. With a background in IT, I strive to create impactful and
           visually stunning Software solutions that leave a lasting impression.
-          <br />I am also actively seeking part-time opportunities to gain
-          professional experience and support myself financially. Driven by a
-          passion for technology and problem-solving, I am enthusiastic about
-          contributing to real-world projects and furthering my career in tech.
+          <br />I’m currently doing part-time freelancing, gaining hands-on experience through 
+real-world projects while continuously sharpening my technical and problem-solving skills.
+
         </p>
         <br /><br />
 
