@@ -29,9 +29,9 @@ function Contact() {
     <>
       <div
         name="Contact"
-        className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-16 bg-black text-white"
+        className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20  text-white"
       >
-        <h1 className="text-3xl font-bold mb-4 text-center">CONTACT ME</h1>
+        <h1 className="text-3xl font-bold mb-4 pt-3 md:pt-8 text-center">CONTACT ME</h1>
         <div className="text-center">Fill out the form below to contact me:</div>
         <div className=" flex flex-col items-center justify-center mt-5">
           <form
