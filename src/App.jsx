@@ -1,33 +1,33 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import About from "./components/About";
-import Portfolio from "./components/Portfolio";
-import Experience from "./components/Experience";
-import Contact from "./components/Contact";
+
+import Home from "./pages/Home";
+import Services from "./pages/Services";
+import Portfolio from "./pages/Portfolio";
+import Pricing from "./pages/Pricing";
+
+import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/Footer";
 
-export default function App() {
-  const location = useLocation();
-
-  // Hide footer on Home and Projects pages
-  const hideFooter =
-    location.pathname === "/" ||
-    location.pathname === "/projects";
-
+function App() {
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-white dark:bg-black min-h-screen text-black dark:text-white transition-all duration-300">
+
+       <ScrollToTop />
       <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Experience />} />
-        <Route path="/skills" element={<Portfolio />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/pricing" element={<Pricing />} />
+        
       </Routes>
+      <Footer/>
 
-      {!hideFooter && <Footer />}
     </div>
   );
 }
+
+export default App;

@@ -1,82 +1,383 @@
-import React, { useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-import { IoCloseSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
-  const [menu, setMenu] = useState(false);
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebookF,
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
 
-  const navItems = [
-    { id: 1, text: "Home", path: "/" },
-    { id: 2, text: "About", path: "/about" },
-    { id: 3, text: "Projects", path: "/projects" },
-    { id: 4, text: "Tech Skills", path: "/skills" },
-    { id: 5, text: "Contact", path: "/contact" },
-  ];
+import { Moon, Sun } from "lucide-react";
+
+import { useEffect, useState } from "react";
+
+const Navbar = () => {
+
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "dark"
+  );
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    localStorage.setItem("theme", theme);
+
+  }, [theme]);
+
+  const toggleTheme = () => {
+
+    if (theme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
+
+  };
 
   return (
-    <>
-      {/* ===== DESKTOP NAVBAR ===== */}
-      <div className="hidden md:block fixed top-6 left-1/2 -translate-x-1/2 z-50">
-        <div
+
+    <nav
+      className="
+      fixed
+      top-0
+      left-0
+      w-full
+      z-50
+
+      px-6 md:px-10
+      py-5
+
+      flex
+      items-center
+      justify-between
+
+      backdrop-blur-xl
+
+      bg-white/80
+      dark:bg-black/40
+
+      border-b
+      border-black/10
+      dark:border-white/10
+
+      transition-all
+      duration-300
+      "
+    >
+
+      {/* LOGO */}
+      <h1
+        className="
+        text-2xl
+        font-bold
+        tracking-wide
+
+        text-black
+        dark:text-white
+        "
+      >
+        Shahran Pasha
+      </h1>
+
+      {/* DESKTOP MENU */}
+      <div
+        className="
+        hidden md:flex
+
+        gap-8
+
+        text-sm
+        uppercase
+        tracking-[3px]
+
+        text-black
+        dark:text-white
+        "
+      >
+
+        <Link
+          to="/"
           className="
-            flex items-center justify-center
-            px-8 py-3
-            rounded-full
-            backdrop-blur-xl
-            bg-white/10
-            border border-white/20
-            shadow-lg
-            text-white
+          hover:text-blue-500
+          transition-all duration-300
           "
         >
-          <ul className="flex items-center gap-10">
-            {navItems.map(({ id, text, path }) => (
-              <li key={id}>
-                <Link
-                  to={path}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  {text}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+          Home
+        </Link>
+
+        <Link
+          to="/services"
+          className="
+          hover:text-blue-500
+          transition-all duration-300
+          "
+        >
+          Services
+        </Link>
+
+        <Link
+          to="/portfolio"
+          className="
+          hover:text-blue-500
+          transition-all duration-300
+          "
+        >
+          Portfolio
+        </Link>
+
+        <Link
+          to="/pricing"
+          className="
+          hover:text-blue-500
+          transition-all duration-300
+          "
+        >
+          Pricing
+        </Link>
+
+        <a
+  href="#contact"
+  className="
+  hover:text-blue-500
+  transition-all duration-300
+  "
+>
+  Contact
+</a>
       </div>
 
-      {/* ===== MOBILE HAMBURGER ONLY ===== */}
-      <div className="md:hidden fixed top-6 left-6 z-50">
-        <button onClick={() => setMenu(true)} className="text-white">
-          <AiOutlineMenu size={26} />
+      {/* RIGHT */}
+      <div
+        className="
+        flex
+        items-center
+        gap-4
+
+        text-xl
+
+        text-black
+        dark:text-white
+        "
+      >
+
+{/* DESKTOP SOCIALS */}
+<div className="hidden md:flex items-center gap-5">
+
+  {/* GITHUB */}
+  <a
+    href="https://github.com/shahranpasha"
+    target="_blank"
+    className="
+    hover:text-gray-700
+    dark:hover:text-white
+
+    hover:scale-110
+    transition-all duration-300
+    "
+  >
+    <FaGithub />
+  </a>
+
+  {/* LINKEDIN */}
+  <a
+    href="https://www.linkedin.com/in/shahranpasha/"
+    target="_blank"
+    className="
+    hover:text-[#0077B5]
+
+    hover:scale-110
+    transition-all duration-300
+    "
+  >
+    <FaLinkedin />
+  </a>
+
+  {/* INSTAGRAM */}
+  <a
+    href="https://www.instagram.com/shahranpashaa/"
+    target="_blank"
+    className="
+    hover:text-[#E1306C]
+
+    hover:scale-110
+    transition-all duration-300
+    "
+  >
+    <FaInstagram />
+  </a>
+
+  {/* FACEBOOK */}
+  <a
+    href="https://www.facebook.com/shahranpasha04"
+    target="_blank"
+    className="
+    hover:text-[#1877F2]
+
+    hover:scale-110
+    transition-all duration-300
+    "
+  >
+    <FaFacebookF />
+  </a>
+
+</div>
+
+        {/* THEME BUTTON */}
+        <button
+          onClick={toggleTheme}
+          className="
+          w-10
+          h-10
+
+          rounded-full
+
+          border
+          border-black/10
+          dark:border-white/10
+
+          flex
+          items-center
+          justify-center
+
+          hover:bg-black/5
+          dark:hover:bg-white/10
+
+          transition-all duration-300
+          "
+        >
+
+          {theme === "dark" ? (
+            <Sun size={18} />
+          ) : (
+            <Moon size={18} />
+          )}
+
         </button>
+
+        {/* MOBILE MENU BUTTON */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="
+          md:hidden
+
+          w-10
+          h-10
+
+          rounded-full
+
+          border
+          border-black/10
+          dark:border-white/10
+
+          flex
+          items-center
+          justify-center
+          "
+        >
+
+          {menuOpen ? (
+            <FaTimes size={18} />
+          ) : (
+            <FaBars size={18} />
+          )}
+
+        </button>
+
       </div>
 
-      {/* ===== MOBILE FULLSCREEN MENU ===== */}
-      {menu && (
-        <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-lg md:hidden">
-          {/* CLOSE ICON */}
-          <div className="absolute top-6 left-6">
-            <button onClick={() => setMenu(false)} className="text-white">
-              <IoCloseSharp size={28} />
-            </button>
-          </div>
+      {/* MOBILE MENU */}
+      <div
+        className={`
+        absolute top-full left-0
 
-          <ul className="flex flex-col items-center justify-center h-full gap-8 text-2xl text-white">
-            {navItems.map(({ id, text, path }) => (
-              <li key={id} onClick={() => setMenu(false)}>
-                <Link
-                  to={path}
-                  className="hover:text-cyan-400 transition-colors"
-                >
-                  {text}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        w-full
+
+        bg-white
+        dark:bg-[#0b0b12]
+
+        border-b
+        border-black/10
+        dark:border-white/10
+
+        backdrop-blur-xl
+
+        flex flex-col
+        items-center
+        gap-8
+
+        py-10
+
+        transition-all duration-500
+
+        ${menuOpen
+          ? "opacity-100 visible translate-y-0"
+          : "opacity-0 invisible -translate-y-10"}
+        `}
+      >
+
+        <Link
+          to="/"
+          onClick={() => setMenuOpen(false)}
+          className="text-lg font-medium hover:text-blue-500"
+        >
+          Home
+        </Link>
+
+        <Link
+          to="/services"
+          onClick={() => setMenuOpen(false)}
+          className="text-lg font-medium hover:text-blue-500"
+        >
+          Services
+        </Link>
+
+        <Link
+          to="/portfolio"
+          onClick={() => setMenuOpen(false)}
+          className="text-lg font-medium hover:text-blue-500"
+        >
+          Portfolio
+        </Link>
+
+        <Link
+          to="/pricing"
+          onClick={() => setMenuOpen(false)}
+          className="text-lg font-medium hover:text-blue-500"
+        >
+          Pricing
+        </Link>
+
+        <a
+  href="#contact"
+  onClick={() => setMenuOpen(false)}
+  className="text-lg font-medium hover:text-blue-500"
+>
+  Contact
+</a>
+
+        {/* MOBILE SOCIALS */}
+        <div className="flex items-center gap-6 text-2xl">
+
+          <FaGithub />
+          <FaLinkedin />
+          <FaInstagram />
+          <FaFacebookF />
+
         </div>
-      )}
-    </>
+
+      </div>
+
+    </nav>
+
   );
 };
 
