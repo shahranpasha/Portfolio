@@ -29,6 +29,8 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import Contact from "./Contact";
 import Resume from "../assets/myresume.pdf";
+import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
 const stats = [
   {
@@ -120,6 +122,37 @@ const Home = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
+
+
+const [current, setCurrent] = useState(0);
+
+const homeProjects = projects.slice(0, 2);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrent((prev) =>
+      prev === homeProjects.length - 1 ? 0 : prev + 1
+    );
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, []);
+
+const prevProject = () => {
+  if (current === 0) {
+    setCurrent(homeProjects.length - 1);
+  } else {
+    setCurrent(current - 1);
+  }
+};
+
+const nextProject = () => {
+  if (current === homeProjects.length - 1) {
+    setCurrent(0);
+  } else {
+    setCurrent(current + 1);
+  }
+};
 
 
   return (
@@ -560,26 +593,57 @@ const Home = () => {
       </section>
 
       {/* PROJECTS */}
-      <section
+<section
   className="
-  py-32 px-6 md:px-8
+  relative
+
+  min-h-[95vh]
+
+  pt-24
+  pb-24
+
+  px-4 md:px-10
+
+  overflow-hidden
 
   bg-[#f5f5f7]
-  dark:bg-[#0b0b12]
-
-  transition-colors duration-500
+  dark:bg-[#070b1a]
   "
 >
-  <div className="max-w-7xl mx-auto">
-    
+  {/* GRID */}
+  <div
+    className="
+    absolute inset-0
+
+    opacity-[0.04]
+
+    [background-size:40px_40px]
+
+    [background-image:
+    linear-gradient(to_right,#ffffff_1px,transparent_1px),
+    linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+    "
+  />
+
+  <div
+    className="
+    relative z-10
+
+    max-w-7xl
+    mx-auto
+    "
+  >
     {/* HEADING */}
-    <div className="text-center mb-20">
+    <div>
       <p
         className="
-        text-violet-500
-        font-semibold
-        tracking-[4px]
+        text-blue-500
+
         uppercase
+        tracking-[4px]
+
+        text-xs md:text-sm
+        font-semibold
         "
       >
         Portfolio
@@ -587,9 +651,9 @@ const Home = () => {
 
       <h2
         className="
-        mt-4
+        mt-3
 
-        text-5xl md:text-4xl
+        text-3xl md:text-5xl
         font-bold
 
         text-zinc-900
@@ -600,149 +664,375 @@ const Home = () => {
       </h2>
     </div>
 
-    {/* PROJECT GRID */}
-    <div
-      className="
-      grid grid-cols-1
-      md:grid-cols-2
+    {/* STACKED CARDS */}
+    <div className="relative mt-10">
+      
+      {/* BACK CARD 2 */}
+      <div
+        className="
+        absolute
 
-      gap-6
-      "
-    >
+        top-6
+        right-0
 
-      {projects.slice(0, 2).map((project, i) => (
-        <a
-          key={i}
-          href={project.live}
-          target="_blank"
-          rel="noreferrer"
+        w-[92%]
+        h-[95%]
+
+        rounded-[28px]
+
+        bg-white/40
+        dark:bg-white/[0.02]
+
+        border border-black/10
+        dark:border-white/10
+
+        scale-[0.94]
+
+        opacity-40
+        "
+      />
+
+      {/* BACK CARD 1 */}
+      <div
+        className="
+        absolute
+
+        top-3
+        right-0
+
+        w-[96%]
+        h-[98%]
+
+        rounded-[28px]
+
+        bg-white/50
+        dark:bg-white/[0.03]
+
+        border border-black/10
+        dark:border-white/10
+
+        scale-[0.97]
+
+        opacity-60
+        "
+      />
+
+      {/* MAIN CARD */}
+      <div
+        className="
+        relative
+
+        grid grid-cols-1
+        lg:grid-cols-[1.45fr_1fr]
+
+        gap-8
+
+        w-full
+
+        rounded-[32px]
+
+        border border-black/10
+        dark:border-white/10
+
+        bg-white/80
+        dark:bg-[#0d1224]/90
+
+        backdrop-blur-xl
+
+        p-5 md:p-8
+
+        shadow-[0_20px_80px_rgba(0,0,0,0.08)]
+        dark:shadow-[0_20px_80px_rgba(59,130,246,0.08)]
+
+        overflow-hidden
+
+        transition-all duration-700
+        "
+      >
+        {/* IMAGE */}
+        <div
           className="
-          group
-
           relative
-
-          rounded-[30px]
-
-          border border-black/10
-          dark:border-violet-500/20
-
-          bg-white
-          dark:bg-[#141421]
 
           overflow-hidden
 
-          shadow-[0_10px_40px_rgba(0,0,0,0.08)]
-          dark:shadow-[0_10px_40px_rgba(124,58,237,0.08)]
+          rounded-[22px]
 
-          hover:-translate-y-2
+          border border-black/10
+          dark:border-white/10
 
-          transition-all duration-500
+          w-full
+
+          aspect-[1920/1030]
+
+          bg-[#0b1120]
+
+          flex items-center justify-center
           "
         >
-          {/* LIVE BUTTON */}
-          <div
+          <img
+            src={homeProjects[current].image}
+            alt={homeProjects[current].title}
             className="
-            absolute top-5 right-5 z-20
+            w-full
+            h-full
+
+            object-cover
+            object-center
+
+            transition-all duration-700
+            "
+          />
+        </div>
+
+        {/* CONTENT */}
+        <div className="flex flex-col justify-center">
+          
+          <p
+            className="
+            text-blue-500
+
+            uppercase
+            tracking-[3px]
+
+            text-[10px] md:text-xs
             "
           >
-            <button
+            Project 0{current + 1}
+          </p>
+
+          <h3
+            className="
+            mt-3
+
+            text-xl md:text-4xl
+            font-bold
+
+            leading-tight
+
+            text-zinc-900
+            dark:text-white
+            "
+          >
+            {homeProjects[current].title}
+          </h3>
+
+          <p
+            className="
+            mt-3
+
+            text-sm md:text-base
+
+            text-zinc-600
+            dark:text-zinc-400
+            "
+          >
+            {homeProjects[current].subtitle}
+          </p>
+
+          {/* INFO */}
+          <div className="mt-5 space-y-2">
+            
+            <div
               className="
-              px-4 py-2
+              flex items-center
+              justify-between
 
-              rounded-full
+              border-b border-black/10
+              dark:border-white/10
 
-              bg-violet-500
-              hover:bg-violet-600
+              pb-2
+              "
+            >
+              <span className="text-xs md:text-sm text-zinc-500">
+                Client
+              </span>
+
+              <span className="text-xs md:text-sm text-zinc-900 dark:text-white">
+                {homeProjects[current].client}
+              </span>
+            </div>
+
+            <div
+              className="
+              flex items-center
+              justify-between
+
+              border-b border-black/10
+              dark:border-white/10
+
+              pb-2
+              "
+            >
+              <span className="text-xs md:text-sm text-zinc-500">
+                Completion Time
+              </span>
+
+              <span className="text-xs md:text-sm text-zinc-900 dark:text-white">
+                {homeProjects[current].time}
+              </span>
+            </div>
+
+            <div
+              className="
+              flex items-center
+              justify-between
+
+              border-b border-black/10
+              dark:border-white/10
+
+              pb-2
+              "
+            >
+              <span className="text-xs md:text-sm text-zinc-500">
+                Technologies
+              </span>
+
+              <span className="text-xs md:text-sm text-right text-zinc-900 dark:text-white">
+                {homeProjects[current].tech}
+              </span>
+            </div>
+          </div>
+
+          {/* BUTTONS */}
+          <div className="mt-6 flex items-center gap-3 flex-wrap">
+            
+            {/* LIVE DEMO */}
+            <a
+              href={homeProjects[current].live}
+              target="_blank"
+              rel="noreferrer"
+              className="
+              inline-flex items-center
+              gap-2
+
+              px-4 py-2.5
+
+              rounded-xl
+
+              bg-gradient-to-r
+              from-blue-500
+              to-cyan-500
+
+              hover:from-blue-600
+              hover:to-cyan-600
 
               text-white
-              text-sm
+              text-xs md:text-sm
+              font-medium
+
+              shadow-[0_10px_40px_rgba(59,130,246,0.35)]
+
+              transition-all duration-300
+              "
+            >
+              Live Demo
+              <ExternalLink size={14} />
+            </a>
+
+            
+          </div>
+        </div>
+
+        {/* NAVIGATION */}
+        <div
+          className="
+          absolute
+
+          bottom-4
+          right-4
+
+          flex items-center
+          gap-2
+
+          z-20
+          "
+        >
+          {/* PREV */}
+          <button
+            onClick={prevProject}
+            className="
+            w-9 h-9
+            md:w-11 md:h-11
+
+            rounded-full
+
+            border border-black/10
+            dark:border-white/10
+
+            bg-white
+            dark:bg-white/[0.06]
+
+            flex items-center justify-center
+
+            hover:bg-blue-500
+            hover:text-white
+
+            transition-all duration-300
+            "
+          >
+            <ChevronLeft size={18} />
+          </button>
+
+          {/* NEXT */}
+          <button
+            onClick={nextProject}
+            className="
+            w-9 h-9
+            md:w-11 md:h-11
+
+            rounded-full
+
+            border border-black/10
+            dark:border-white/10
+
+            bg-white
+            dark:bg-white/[0.06]
+
+            flex items-center justify-center
+
+            hover:bg-blue-500
+            hover:text-white
+
+            transition-all duration-300
+            "
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+      </div>
+    </div>
+    {/* VIEW ALL */}
+    <div className="mt-6 flex justify-center items-center gap-3 flex-wrap">
+            <a
+              href="/portfolio"
+              className="
+              inline-flex items-center
+              gap-2
+
+              px-4 py-2.5
+
+              rounded-xl
+
+              border border-black/10
+              dark:border-white/10
+
+              bg-white
+              dark:bg-white/[0.04]
+
+              hover:bg-blue-500
+              hover:text-white
+
+              text-xs md:text-sm
               font-medium
 
               transition-all duration-300
               "
             >
-              Live ↗
-            </button>
-          </div>
-
-          {/* IMAGE */}
-          <div className="overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="
-              h-64 w-full
-              object-cover
-
-              group-hover:scale-110
-
-              transition-transform duration-700
-              "
-            />
-          </div>
-
-          {/* CONTENT */}
-          <div className="p-7">
-            <h3
-              className="
-              text-sm font-bold
-
-              text-zinc-900
-              dark:text-white
-              "
-            >
-              {project.title}
-            </h3>
-
-            <p
-              className="
-              mt-4
-
-              text-base
-
-              text-zinc-600
-              dark:text-zinc-400
-              "
-            >
-              {project.subtitle}
-            </p>
-          </div>
-        </a>
-      ))}
-
-    </div>
-
-    {/* VIEW ALL */}
-    <div className="flex justify-center mt-16">
-      <a
-        href="/portfolio"
-        className="
-        group
-
-        px-8 py-4
-
-        rounded-full
-
-        border border-black/10
-        dark:border-violet-500/20
-
-        bg-white
-        dark:bg-[#141421]
-
-        text-base font-semibold
-
-        text-zinc-900
-        dark:text-white
-
-        hover:bg-violet-500
-        hover:text-white
-
-        transition-all duration-300
-        "
-      >
-        View All Projects →
-      </a>
-    </div>
+              View All Projects →
+            </a>
+            </div>
+    
   </div>
 </section>
 

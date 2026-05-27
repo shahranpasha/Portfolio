@@ -55,11 +55,12 @@ const projects = [
 
 const Portfolio = () => {
   const [current, setCurrent] = useState(0);
+  const homeProjects = projects.slice(0, 2);
 
   /* AUTO SLIDE */
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+      setCurrent((prev) => (prev === homeProjects.length - 1 ? 0 : prev + 1));
     }, 3000);
 
     return () => clearInterval(interval);
@@ -68,7 +69,7 @@ const Portfolio = () => {
   /* PREVIOUS */
   const prevProject = () => {
     if (current === 0) {
-      setCurrent(projects.length - 1);
+      setCurrent(homeProjects.length - 1);
     } else {
       setCurrent(current - 1);
     }
@@ -76,7 +77,7 @@ const Portfolio = () => {
 
   /* NEXT */
   const nextProject = () => {
-    if (current === projects.length - 1) {
+    if (current === homeProjects.length - 1) {
       setCurrent(0);
     } else {
       setCurrent(current + 1);
@@ -263,8 +264,8 @@ const Portfolio = () => {
   "
             >
               <img
-                src={projects[current].image}
-                alt={projects[current].title}
+                src={homeProjects[current].image}
+                alt={homeProjects[current].title}
                 className="
     w-full
     h-full
@@ -305,7 +306,7 @@ const Portfolio = () => {
                 dark:text-white
                 "
               >
-                {projects[current].title}
+                {homeProjects[current].title}
               </h3>
 
               <p
@@ -318,7 +319,7 @@ const Portfolio = () => {
                 dark:text-zinc-400
                 "
               >
-                {projects[current].subtitle}
+                {homeProjects[current].subtitle}
               </p>
 
               {/* INFO */}
@@ -352,7 +353,7 @@ const Portfolio = () => {
                     dark:text-white
                     "
                   >
-                    {projects[current].client}
+                    {homeProjects[current].client}
                   </span>
                 </div>
 
@@ -385,7 +386,7 @@ const Portfolio = () => {
                     dark:text-white
                     "
                   >
-                    {projects[current].time}
+                    {homeProjects[current].time}
                   </span>
                 </div>
 
@@ -419,7 +420,7 @@ const Portfolio = () => {
                     dark:text-white
                     "
                   >
-                    {projects[current].tech}
+                    {homeProjects[current].tech}
                   </span>
                 </div>
               </div>
@@ -438,7 +439,7 @@ const Portfolio = () => {
                 
 
                 <a
-                  href={projects[current].live}
+                  href={homeProjects[current].live}
                   target="_blank"
                   rel="noreferrer"
                   className="
