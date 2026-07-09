@@ -95,14 +95,14 @@ const projects = [
     live: "https://elitedesignsarcvibe.com/",
   },
   {
-    title: "Buyeco E-Commerce",
-    subtitle: "Modern Multi-Product E-Commerce Platform",
-    image: "/projects/b.png",
-    client: "Buyeco",
-    time: "Aug 2025 – Nov 2025",
-    tech: "React, Node.js, Express.js, Tailwind CSS",
-    live: "https://buyeco.com/",
-  },
+  title: "FinSwipX",
+  subtitle: "AI-Powered FinTech & Digital Banking Platform",
+  image: "/projects/finswip.png",
+  client: "FinSwipX",
+  time: "Currently Working",
+  tech: "Next.js, React.js, Tailwind CSS, Framer Motion, Three.js",
+  live: "https://finswipx.com/",
+},
 ];
 
 const Home = () => {
@@ -1436,105 +1436,208 @@ const nextProject = () => {
 
               {/* RUHI */}
               <div
-                className="
-          rounded-3xl
+  className="
+  rounded-3xl
+  border border-black/10
+  dark:border-violet-500/20
+  bg-black/[0.02]
+  dark:bg-white/[0.02]
+  p-6
+  hover:scale-[1.02]
+  hover:border-violet-500/40
+  transition-all duration-500
+  "
+>
+  <p className="text-violet-500 font-semibold text-sm">
+    May 2025 – Jul 2025
+  </p>
 
-          border border-black/10
-          dark:border-violet-500/20
+  <h3
+    className="
+    mt-5
+    text-2xl font-bold
+    text-zinc-900
+    dark:text-white
+    "
+  >
+    Ruhi Interiors W.L.L.
+  </h3>
 
-          bg-black/[0.02]
-          dark:bg-white/[0.02]
+  <p className="mt-3 text-violet-500 font-medium">
+    MERN Stack Developer Intern
+  </p>
 
-          p-6
+  <p
+    className="
+    mt-6
+    text-base
+    leading-relaxed
+    text-zinc-600
+    dark:text-zinc-400
+    "
+  >
+    Successfully completed a Summer Internship at Ruhi Interiors W.L.L. and
+    developed the company's official website using the MERN Stack. Worked on
+    responsive UI, backend integration, performance optimization and deployment.
+  </p>
 
-          hover:scale-[1.02]
-          hover:border-violet-500/40
+  <a
+  href="/certificates/ruhi-interiors-certificate.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+  inline-flex
+  items-center
+  gap-3
 
-          transition-all duration-500
-          "
-              >
-                <p className="text-violet-500 font-semibold text-sm">
-                  Jan 2025 – jul 2025
-                </p>
+  mt-7
 
-                <h3
-                  className="
-            mt-5
+  px-5
+  py-3
 
-            text-2xl font-bold
+  rounded-xl
 
-            text-zinc-900
-            dark:text-white
-            "
-                >
-                  Ruhi Interiors
-                </h3>
+  border
+  border-violet-500/20
 
-                <p
-                  className="
-            mt-6
+  bg-violet-500/10
+  hover:bg-violet-500
 
-            text-base leading-relaxed
+  text-violet-500
+  hover:text-white
 
-            text-zinc-600
-            dark:text-zinc-400
-            "
-                >
-                  Worked on responsive website interfaces, UI improvements and
-                  frontend optimization.
-                </p>
-              </div>
+  font-semibold
+  text-sm
+
+  transition-all
+  duration-300
+
+  hover:shadow-[0_10px_30px_rgba(139,92,246,0.35)]
+  hover:-translate-y-1
+  "
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-5 h-5"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 16V4m0 12l-4-4m4 4l4-4M5 20h14"
+    />
+  </svg>
+
+  <span>View Verified Certificate</span>
+
+  <span className="text-lg">↗</span>
+</a>
+</div>
 
               {/* BUYECO */}
               <div
-                className="
-          rounded-3xl
+  className="
+  rounded-3xl
+  border border-black/10
+  dark:border-violet-500/20
+  bg-black/[0.02]
+  dark:bg-white/[0.02]
+  p-6
+  hover:scale-[1.02]
+  hover:border-violet-500/40
+  transition-all duration-500
+  "
+>
+  <p className="text-violet-500 font-semibold text-sm">
+    April 2026 – June 2026  </p>
 
-          border border-black/10
-          dark:border-violet-500/20
+  <h3
+    className="
+    mt-5
+    text-2xl font-bold
+    text-zinc-900
+    dark:text-white
+    "
+  >
+    FinSwipX
+  </h3>
 
-          bg-black/[0.02]
-          dark:bg-white/[0.02]
+  <p className="mt-3 text-violet-500 font-medium">
+    Full Stack Developer Intern
+  </p>
 
-          p-6
+  <p
+    className="
+    mt-6
+    text-base
+    leading-relaxed
+    text-zinc-600
+    dark:text-zinc-400
+    "
+  >
+    Contributed to the development of an AI-powered FinTech platform using
+    Next.js, React.js, Tailwind CSS, Three.js and modern frontend technologies.
+    Worked on responsive UI, animations and scalable architecture.
+  </p>
 
-          hover:scale-[1.02]
-          hover:border-violet-500/40
+  <a
+  href="/certificates/finswipx-certificate.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+  inline-flex
+  items-center
+  gap-3
 
-          transition-all duration-500
-          "
-              >
-                <p className="text-violet-500 font-semibold text-sm">
-                  Aug 2025 – Nov 2025
-                </p>
+  mt-7
 
-                <h3
-                  className="
-            mt-5
+  px-5
+  py-3
 
-            text-2xl font-bold
+  rounded-xl
 
-            text-zinc-900
-            dark:text-white
-            "
-                >
-                  Buyeco
-                </h3>
+  border
+  border-violet-500/20
 
-                <p
-                  className="
-            mt-6
+  bg-violet-500/10
+  hover:bg-violet-500
 
-            text-base leading-relaxed
+  text-violet-500
+  hover:text-white
 
-            text-zinc-600
-            dark:text-zinc-400
-            "
-                >
-                  Developed and maintained modern web pages with focus on
-                  performance, responsiveness and user experience.
-                </p>
-              </div>
+  font-semibold
+  text-sm
+
+  transition-all
+  duration-300
+
+  hover:shadow-[0_10px_30px_rgba(139,92,246,0.35)]
+  hover:-translate-y-1
+  "
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-5 h-5"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 16V4m0 12l-4-4m4 4l4-4M5 20h14"
+    />
+  </svg>
+
+  <span>View Verified Certificate</span>
+
+  <span className="text-lg">↗</span>
+</a>
+</div>
             </div>
           </div>
         </div>

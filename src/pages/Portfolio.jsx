@@ -14,6 +14,15 @@ const projects = [
     live: "https://elitedesignsarcvibe.com/",
   },
   {
+  title: "FinSwipX",
+  subtitle: "AI-Powered FinTech & Digital Banking Platform",
+  image: "/projects/finswip.png",
+  client: "FinSwipX",
+  time: "Currently Working",
+  tech: "Next.js, React.js, Tailwind CSS, Framer Motion, Three.js",
+  live: "https://finswipx.com/",
+},
+  {
     title: "Ruhi Interiors",
     subtitle: "Modern Interior  Design Platform",
     image: "/projects/r.png",
