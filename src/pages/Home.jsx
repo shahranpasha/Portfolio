@@ -28,7 +28,7 @@ import {
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import Contact from "./Contact";
-import Resume from "../assets/myresume.pdf";
+import Resume from "../assets/shahranpasharesumee.pdf";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
